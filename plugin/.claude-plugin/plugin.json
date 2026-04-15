@@ -1,0 +1,86 @@
+{
+  "name": "aeberhard-ai-rag",
+  "version": "1.0.0",
+  "description": "aeberhard.ai RAG \u2014 hybrid retrieval over curated datasets: Swiss federal law (Fedlex), Federal Court decisions (BGer), parliament (Curia Vista), popular votes (Swissvotes), EU/OECD/Swiss statistics, and 92k scientific papers from OpenAlex/arXiv. Swiss-focused with European and global reach. Invite-only PoC \u2014 requires RAG_API_KEY.",
+  "author": {
+    "name": "aeberhard.ai",
+    "url": "https://aeberhard.ai"
+  },
+  "homepage": "https://aeberhard.ai/rag",
+  "repository": "https://github.com/Simplycissmus/aeberhard-ai-rag-public",
+  "license": "MIT",
+  "keywords": [
+    "aeberhard.ai",
+    "rag",
+    "swiss",
+    "federal-law",
+    "fedlex",
+    "bger",
+    "curia-vista",
+    "swissvotes",
+    "statistics",
+    "science"
+  ],
+  "mcpServers": {
+    "rag-core": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/servers/core/index.js"
+      ],
+      "env": {
+        "RAG_API_URL": "https://rag.aeberhard.ai/v1",
+        "RAG_API_KEY": "${RAG_API_KEY}"
+      }
+    },
+    "rag-law-core": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/servers/law-core/index.js"
+      ],
+      "env": {
+        "RAG_API_URL": "https://rag.aeberhard.ai/v1",
+        "RAG_API_KEY": "${RAG_API_KEY}"
+      }
+    },
+    "rag-parliament": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/servers/parliament/index.js"
+      ],
+      "env": {
+        "RAG_API_URL": "https://rag.aeberhard.ai/v1",
+        "RAG_API_KEY": "${RAG_API_KEY}"
+      }
+    },
+    "rag-votes": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/servers/votes/index.js"
+      ],
+      "env": {
+        "RAG_API_URL": "https://rag.aeberhard.ai/v1",
+        "RAG_API_KEY": "${RAG_API_KEY}"
+      }
+    },
+    "rag-stats": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/servers/stats/index.js"
+      ],
+      "env": {
+        "RAG_API_URL": "https://rag.aeberhard.ai/v1",
+        "RAG_API_KEY": "${RAG_API_KEY}"
+      }
+    },
+    "rag-science": {
+      "command": "node",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/servers/science/index.js"
+      ],
+      "env": {
+        "RAG_API_URL": "https://rag.aeberhard.ai/v1",
+        "RAG_API_KEY": "${RAG_API_KEY}"
+      }
+    }
+  }
+}

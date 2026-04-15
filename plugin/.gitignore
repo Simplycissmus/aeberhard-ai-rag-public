@@ -1,0 +1,6 @@
+# Plugin workspace — override repo-level Python .gitignore patterns
+!lib/
+!lib/*
+node_modules/
+*.log
+.DS_Store

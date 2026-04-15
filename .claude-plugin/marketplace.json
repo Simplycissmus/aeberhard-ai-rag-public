@@ -1,0 +1,14 @@
+{
+  "name": "aeberhard-ai-public",
+  "owner": {
+    "name": "aeberhard.ai"
+  },
+  "plugins": [
+    {
+      "name": "aeberhard-ai-rag",
+      "source": "./plugin",
+      "description": "aeberhard.ai RAG \u2014 Swiss federal law + parliament + votes + BGer, plus EU/OECD/Swiss statistics and 92k scientific papers. Invite-only, requires RAG_API_KEY.",
+      "version": "1.0.0"
+    }
+  ]
+}

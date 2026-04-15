@@ -1,0 +1,16 @@
+{
+  "name": "aeberhard-ai-rag",
+  "version": "2.1.0",
+  "description": "Swiss RAG Stack — Claude Code marketplace plugin (6 MCP servers, 31 tools, 6 skills)",
+  "private": true,
+  "scripts": {
+    "test": "node tests/smoke_all_servers.js",
+    "test:tools-list": "node tests/tools_list_check.js",
+    "test:integration": "node tests/integration_smoke.js",
+    "validate:manifest": "node -e \"JSON.parse(require('fs').readFileSync('.claude-plugin/plugin.json'))\" && echo manifest OK"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {}
+}
