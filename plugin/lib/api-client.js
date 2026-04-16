@@ -57,6 +57,19 @@ async function request(method, pathOrUrl, opts = {}) {
     urlStr = u.toString();
   }
 
+  // SSRF guard: pin to DEFAULT_BASE_URL host regardless of what the caller passed.
+  // This prevents a compromised tool argument or prompt-injection from redirecting
+  // the plugin to an attacker-controlled or internal host.
+  try {
+    const expectedHost = new URL(DEFAULT_BASE_URL).host;
+    const actualHost = new URL(urlStr).host;
+    if (actualHost !== expectedHost) {
+      throw new Error(`host mismatch — plugin is pinned to ${expectedHost}`);
+    }
+  } catch (hostGuardErr) {
+    throw hostGuardErr;
+  }
+
   const url = new URL(urlStr);
   const isHttps = url.protocol === 'https:';
   const lib = isHttps ? https : http;

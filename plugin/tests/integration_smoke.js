@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 /**
- * Integration smoke test: hit the live backend (10.0.0.111:8000/v1) via a few
+ * Integration smoke test: hit the live backend (rag-backend.internal/v1) via a few
  * representative tool handlers. Does NOT spawn MCP servers — imports handlers directly.
  *
- * Run: RAG_API_URL=http://10.0.0.111:8000/v1 node tests/integration_smoke.js
+ * Run: RAG_API_URL=https://rag.aeberhard.ai/v1 node tests/integration_smoke.js
  */
 
-process.env.RAG_API_URL = process.env.RAG_API_URL || 'http://10.0.0.111:8000/v1';
+process.env.RAG_API_URL = process.env.RAG_API_URL || 'https://rag.aeberhard.ai/v1';
 
 const { get, post, del, asToolResult } = require('../lib/api-client');
 

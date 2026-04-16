@@ -61,11 +61,18 @@ function start({ name, version, tools }) {
           },
         };
       } catch (err) {
+        // Log the full error to stderr for the plugin operator, but never echo
+        // stack traces (file paths etc.) back into the Claude conversation.
+        if (process.stderr && typeof process.stderr.write === 'function') {
+          try {
+            process.stderr.write(`[rag-mcp] tool error: ${err && err.stack ? err.stack : err}\n`);
+          } catch (_) { /* ignore */ }
+        }
         return {
           jsonrpc: '2.0',
           id: message.id,
           result: {
-            content: [{ type: 'text', text: JSON.stringify({ error: { message: err.message, stack: err.stack ? err.stack.split('\n').slice(0, 5).join('\n') : undefined } }, null, 2) }],
+            content: [{ type: 'text', text: JSON.stringify({ error: { message: 'internal error — check plugin logs' } }, null, 2) }],
             isError: true,
           },
         };

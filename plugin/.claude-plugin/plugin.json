@@ -1,6 +1,6 @@
 {
   "name": "aeberhard-ai-rag",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "aeberhard.ai RAG \u2014 hybrid retrieval over curated datasets: Swiss federal law (Fedlex), Federal Court decisions (BGer), parliament (Curia Vista), popular votes (Swissvotes), EU/OECD/Swiss statistics, and 92k scientific papers from OpenAlex/arXiv. Swiss-focused with European and global reach. Invite-only PoC \u2014 requires RAG_API_KEY.",
   "author": {
     "name": "aeberhard.ai",
